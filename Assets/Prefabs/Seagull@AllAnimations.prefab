@@ -1,0 +1,1413 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &191882734663817903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3600547001338412562}
+  m_Layer: 0
+  m_Name: SEAGULL_ Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3600547001338412562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191882734663817903}
+  m_LocalRotation: {x: -0.0000020256948, y: 0.00000064239765, z: 0.07102845, w: 0.9974743}
+  m_LocalPosition: {x: -0.024426183, y: 0.01735462, z: 0.000000009250488}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5034092609643450264}
+  - {fileID: 8711315663646822914}
+  - {fileID: 1370984005380634158}
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -0.00023271806, y: 0.000037048834, z: 15.608377}
+--- !u!1 &216162350062673168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3574971733254926190}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherL_D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3574971733254926190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216162350062673168}
+  m_LocalRotation: {x: 0.36907834, y: -0.064011335, z: -0.47184584, w: 0.79815114}
+  m_LocalPosition: {x: -0.06450682, y: 0.094742104, z: -0.009499539}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6370585419684310668}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 29.030304, y: -29.367125, z: -28.166737}
+--- !u!1 &218657329635330361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5034092609643450264}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5034092609643450264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218657329635330361}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: -0.70710576, w: 0.0002815297}
+  m_LocalPosition: {x: -0.057695933, y: -0.027911805, z: 0.002574231}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6370585419684310668}
+  m_Father: {fileID: 3600547001338412562}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.045623776, y: -90.00015, z: 180}
+--- !u!1 &402222380053349228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3654718912673168216}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherR_B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3654718912673168216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402222380053349228}
+  m_LocalRotation: {x: -0.64632523, y: 0.66479135, z: 0.17429009, w: -0.3315709}
+  m_LocalPosition: {x: -0.12762518, y: 0.076584406, z: -0.011118329}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 7021017607495091095}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 18.184288, y: 179.33656, z: -11.12665}
+--- !u!1 &865007706987124810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7496566332542980190}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7496566332542980190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865007706987124810}
+  m_LocalRotation: {x: 0.000000006768794, y: -0.000000008941526, z: 0.6676975, w: 0.74443275}
+  m_LocalPosition: {x: -0.040661965, y: -0.000000009536743, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 3004146922904873148}
+  m_Father: {fileID: 5988428194973668989}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00000034221782, y: 0.000000042244643, z: 95.69523}
+--- !u!1 &942901200321517614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4884018748746312114}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4884018748746312114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942901200321517614}
+  m_LocalRotation: {x: -0.6623399, y: 0.061447944, z: -0.002517884, w: 0.7466751}
+  m_LocalPosition: {x: -0.13058199, y: -0.000000014305114, z: 0.000000019073486}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 416989353468648619}
+  m_Father: {fileID: 9037476774455572080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 67.57643, y: 4.407968, z: 178.7796}
+--- !u!1 &971835346807215421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3671627572398539427}
+  m_Layer: 0
+  m_Name: SEAGULL_ Tail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3671627572398539427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971835346807215421}
+  m_LocalRotation: {x: 0.0000006540063, y: -0.0000006801864, z: 0.9998218, w: 0.018878028}
+  m_LocalPosition: {x: 0.04359483, y: -0.017597465, z: -0.000000016771828}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0.00009614374, y: -0.00005694659, z: 164.13492}
+--- !u!1 &1040507506553690720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6116309168296501588}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6116309168296501588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040507506553690720}
+  m_LocalRotation: {x: 0.016205298, y: -0.047929842, z: 0.024640061, w: 0.99841523}
+  m_LocalPosition: {x: -0.044468224, y: -0.0000000023841857, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 3773685982282474259}
+  m_Father: {fileID: 3004146922904873148}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 2.4432735, y: -2.8006313, z: 2.2532642}
+--- !u!1 &1041025702164238110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4633907928140217186}
+  m_Layer: 0
+  m_Name: SEAGULL_ TailL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4633907928140217186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041025702164238110}
+  m_LocalRotation: {x: -0.05987403, y: 0.9222268, z: -0.0123503115, w: 0.38178566}
+  m_LocalPosition: {x: 0.05058963, y: -0.0122409295, z: 0.026361598}
+  m_LocalScale: {x: 1, y: 0.9999998, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 5.1524625, y: -177.9723, z: 17.829617}
+--- !u!1 &1554722333383596847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7672230393784923559}
+  m_Layer: 0
+  m_Name: SEAGULL_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7672230393784923559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554722333383596847}
+  m_LocalRotation: {x: 0.37992802, y: -0.3799284, z: 0.5963676, w: 0.59636813}
+  m_LocalPosition: {x: -0, y: 0.032403775, z: 0.129}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 8606108721709019955}
+  m_Father: {fileID: 3038731161521257482}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 65, y: -0.00010591991, z: 89.99989}
+--- !u!1 &1744082310146116251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6775547484786439153}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6775547484786439153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744082310146116251}
+  m_LocalRotation: {x: 0, y: 5.4123372e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.009433073, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1072408162996944372}
+  m_Father: {fileID: 3773685982282474259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -5.711795e-13, y: 1.32674e-12, z: 2.5138606e-34}
+--- !u!1 &2112303151292674560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1041539411590896074}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1041539411590896074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112303151292674560}
+  m_LocalRotation: {x: 0.66234, y: -0.061447974, z: -0.0025178553, w: 0.7466751}
+  m_LocalPosition: {x: -0.130582, y: -0.0000000047683715, z: 0.000000009536743}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 1}
+  m_Children:
+  - {fileID: 1659723619990496956}
+  m_Father: {fileID: 7021017607495091095}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -67.57643, y: -4.4079733, z: 178.77698}
+--- !u!1 &2402191478579161822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8606108721709019955}
+  m_Layer: 0
+  m_Name: SEAGULL_ Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8606108721709019955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2402191478579161822}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.49999934, w: 0.50000066}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8451321149691907438}
+  - {fileID: 5988428194973668989}
+  - {fileID: 3600547001338412562}
+  - {fileID: 3671627572398539427}
+  - {fileID: 4633907928140217186}
+  - {fileID: 9216778038340007787}
+  m_Father: {fileID: 7672230393784923559}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 89.99992, z: 0}
+--- !u!1 &2510834861117293073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4436228681465337035}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherL_C
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4436228681465337035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2510834861117293073}
+  m_LocalRotation: {x: 0.33272517, y: -0.17207617, z: -0.6690843, w: 0.64188004}
+  m_LocalPosition: {x: 0.010457882, y: 0.07868869, z: -0.0067853215}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9037476774455572080}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 10.581635, y: -2.5890012, z: -177.18744}
+--- !u!1 &2861103760396270000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4594549796216304702}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4594549796216304702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861103760396270000}
+  m_LocalRotation: {x: -0.0000000011007532, y: 0.0000000040169117, z: 0.66769755,
+    w: 0.7444327}
+  m_LocalPosition: {x: -0.040661953, y: -0.000000009536743, z: 0.0000000023841857}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_Children:
+  - {fileID: 8240318389619623675}
+  m_Father: {fileID: 8451321149691907438}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00000056109087, y: 0.00000021390755, z: 95.69669}
+--- !u!1 &3707558362472725586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8356764536138682496}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8356764536138682496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3707558362472725586}
+  m_LocalRotation: {x: -0.016205208, y: 0.047929816, z: 0.024639983, w: 0.99841523}
+  m_LocalPosition: {x: -0.04446822, y: 0.0000000023841857, z: 0.0000000023841857}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.9999999}
+  m_Children:
+  - {fileID: 3664332889128350606}
+  m_Father: {fileID: 8240318389619623675}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -2.4432824, y: 2.8000221, z: 2.253342}
+--- !u!1 &3909464818486674273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1072408162996944372}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Toe02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1072408162996944372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3909464818486674273}
+  m_LocalRotation: {x: 0, y: 5.4123372e-15, z: -0, w: 1}
+  m_LocalPosition: {x: -0.012245044, y: 7.4505804e-11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6775547484786439153}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -5.711795e-13, y: 1.32674e-12, z: 2.5138606e-34}
+--- !u!1 &3950510077378620446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8451321149691907438}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8451321149691907438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3950510077378620446}
+  m_LocalRotation: {x: 0.9053782, y: -0.4215809, z: 0.015426115, w: -0.04818522}
+  m_LocalPosition: {x: 0.000000030994414, y: 0.000000028610229, z: 0.025529565}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 4594549796216304702}
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -1.6116302, y: 176.65182, z: -139.18349}
+--- !u!1 &3985205827618014115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3367816431157820518}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Toe02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3367816431157820518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985205827618014115}
+  m_LocalRotation: {x: 7.1054274e-15, y: 4.6573856e-14, z: -3.3092715e-28, w: 1}
+  m_LocalPosition: {x: -0.012245044, y: 1.4901161e-10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4983578610337747505}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.4156624e-13, y: 7.238565e-11, z: -1.6088708e-32}
+--- !u!1 &4162710727105252743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6393499387206508869}
+  m_Layer: 0
+  m_Name: SEAGULL_ R UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6393499387206508869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4162710727105252743}
+  m_LocalRotation: {x: 0.61052287, y: -0.15563942, z: -0.36345094, w: 0.6862518}
+  m_LocalPosition: {x: -0.02989685, y: -0.000000009536743, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7021017607495091095}
+  - {fileID: 6035904465984885689}
+  m_Father: {fileID: 1370984005380634158}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 39.94173, y: 74.54339, z: -18.386923}
+--- !u!1 &4445650555355679819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416989353468648619}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherL_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &416989353468648619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445650555355679819}
+  m_LocalRotation: {x: 0.7169521, y: 0.27129853, z: -0.58982, w: 0.25394717}
+  m_LocalPosition: {x: -0.1533286, y: 0.0004914218, z: 0.036872525}
+  m_LocalScale: {x: 0.9999999, y: 1.0000002, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 4884018748746312114}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 52.36058, y: 158.81145, z: 176.0806}
+--- !u!1 &4452602081514515088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3664332889128350606}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3664332889128350606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452602081514515088}
+  m_LocalRotation: {x: -0.0000000154543, y: 0.000000015454336, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.0108320685, y: 0.008673416, z: -0.0025403094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4983578610337747505}
+  m_Father: {fileID: 8356764536138682496}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.0008952345, y: 0.00004234659, z: -90.00001}
+--- !u!1 &4755441106606277059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1370984005380634158}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1370984005380634158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755441106606277059}
+  m_LocalRotation: {x: 0.7071077, y: 0.00028152892, z: 0.70710576, w: -0.0002815297}
+  m_LocalPosition: {x: -0.057695933, y: -0.027911786, z: -0.0025743858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6393499387206508869}
+  m_Father: {fileID: 3600547001338412562}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: -0.045623776, y: 90.00015, z: 180}
+--- !u!1 &5227143353705972130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3773685982282474259}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3773685982282474259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5227143353705972130}
+  m_LocalRotation: {x: 0.000000015454324, y: -0.000000015454287, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.0108320685, y: 0.008673415, z: 0.002540307}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6775547484786439153}
+  m_Father: {fileID: 6116309168296501588}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.00010302341, y: 0.000031953034, z: -90.00001}
+--- !u!1 &5511181076122550190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9037476774455572080}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9037476774455572080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5511181076122550190}
+  m_LocalRotation: {x: 0.000000037057934, y: -0.000000020076527, z: 0.28490067, w: 0.95855707}
+  m_LocalPosition: {x: -0.103129804, y: 0, z: -0.000000019073486}
+  m_LocalScale: {x: 0.9999998, y: 0.99999976, z: 0.99999994}
+  m_Children:
+  - {fileID: 4884018748746312114}
+  - {fileID: 6960054708880354365}
+  - {fileID: 4436228681465337035}
+  m_Father: {fileID: 6370585419684310668}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000002045705, y: -0.000004591463, z: 162.3095}
+--- !u!1 &5574204973199868603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6370585419684310668}
+  m_Layer: 0
+  m_Name: SEAGULL_ L UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6370585419684310668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574204973199868603}
+  m_LocalRotation: {x: -0.6105229, y: 0.15563944, z: -0.36345094, w: 0.6862518}
+  m_LocalPosition: {x: -0.029896855, y: -0.000000019073486, z: -0.000000009536743}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9037476774455572080}
+  - {fileID: 3574971733254926190}
+  m_Father: {fileID: 5034092609643450264}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -39.94169, y: -74.543396, z: -18.386913}
+--- !u!1 &5771639044947792310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4983578610337747505}
+  m_Layer: 0
+  m_Name: SEAGULL_ L Toe01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4983578610337747505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771639044947792310}
+  m_LocalRotation: {x: 7.1054274e-15, y: 4.6573856e-14, z: -3.3092715e-28, w: 1}
+  m_LocalPosition: {x: -0.009433074, y: -7.4505804e-11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3367816431157820518}
+  m_Father: {fileID: 3664332889128350606}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 3.4156624e-13, y: 7.238565e-11, z: -1.6088708e-32}
+--- !u!1 &5904080554365624271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2326933542578113823}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherR_C
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2326933542578113823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5904080554365624271}
+  m_LocalRotation: {x: -0.6418792, y: 0.66908514, z: 0.1720758, w: -0.3327253}
+  m_LocalPosition: {x: 0.010622922, y: 0.07866307, z: 0.006639474}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7021017607495091095}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 11.775797, y: -174.75659, z: -5.0689955}
+--- !u!1 &5963420213365382406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5988428194973668989}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5988428194973668989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5963420213365382406}
+  m_LocalRotation: {x: 0.9053782, y: -0.42158085, z: -0.0154268555, w: 0.048187077}
+  m_LocalPosition: {x: -0.00000004053116, y: -0.000000038146972, z: -0.025529565}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_Children:
+  - {fileID: 7496566332542980190}
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 1.6122844, y: -176.65154, z: -139.18306}
+--- !u!1 &6000978982268946031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9216778038340007787}
+  m_Layer: 0
+  m_Name: SEAGULL_ TailR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9216778038340007787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000978982268946031}
+  m_LocalRotation: {x: 0.3819048, y: -0.012663959, z: 0.92216516, w: -0.0599979}
+  m_LocalPosition: {x: 0.0505896, y: -0.012241029, z: -0.025999986}
+  m_LocalScale: {x: 0.99999994, y: 0.9999997, z: 0.99999976}
+  m_Children: []
+  m_Father: {fileID: 8606108721709019955}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 5.21091, y: -2.0313425, z: 162.20851}
+--- !u!1 &6430069416318685250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3004146922904873148}
+  m_Layer: 0
+  m_Name: SEAGULL_ R HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3004146922904873148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430069416318685250}
+  m_LocalRotation: {x: -0.0000000070810366, y: -0.000000010049712, z: -0.18300766,
+    w: 0.9831115}
+  m_LocalPosition: {x: -0.0590295, y: -0.0000000023841857, z: 0.0000000023841857}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Children:
+  - {fileID: 6116309168296501588}
+  m_Father: {fileID: 7496566332542980190}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.000000532463, y: 0.00000040726903, z: -23.324356}
+--- !u!1 &6649728174985939173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8711315663646822914}
+  m_Layer: 0
+  m_Name: SEAGULL_ Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8711315663646822914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6649728174985939173}
+  m_LocalRotation: {x: 9.1445474e-14, y: -0.0000005135848, z: 0.18516901, w: 0.9827067}
+  m_LocalPosition: {x: -0.0776279, y: -0.003934107, z: -0.0000000082497715}
+  m_LocalScale: {x: 1.0000002, y: 1.0000002, z: 1}
+  m_Children:
+  - {fileID: 3814817725040219088}
+  m_Father: {fileID: 3600547001338412562}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0.000018518504, y: -0.00007630937, z: 28.699621}
+--- !u!1 &7160348772559074809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4586739331744008935}
+  m_Layer: 0
+  m_Name: SEAGULL_ Queue de cheval 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4586739331744008935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7160348772559074809}
+  m_LocalRotation: {x: 1.6572893e-12, y: 0.000002202364, z: -0.7940457, w: 0.60785806}
+  m_LocalPosition: {x: -0.0059340857, y: 0.012645774, z: -0.00000002953053}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3814817725040219088}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.000121402176, y: 0.00015390803, z: -76.35903}
+--- !u!1 &7487504059110486785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659723619990496956}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherR_A
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1659723619990496956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487504059110486785}
+  m_LocalRotation: {x: 0.25394633, y: -0.5898205, z: 0.27129942, w: 0.71695167}
+  m_LocalPosition: {x: -0.15791678, y: 0.00056199764, z: -0.03337499}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_Children: []
+  m_Father: {fileID: 1041539411590896074}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 15.718523, y: 23.27703, z: 11.341653}
+--- !u!1 &7612700726507535606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6035904465984885689}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherR_D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6035904465984885689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7612700726507535606}
+  m_LocalRotation: {x: 0.7981505, y: -0.47184706, z: -0.0640108, w: 0.36907828}
+  m_LocalPosition: {x: -0.06464452, y: 0.09468039, z: 0.009631144}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 6393499387206508869}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 45.406216, y: -142.56902, z: -144.82257}
+--- !u!1 &7989046525326943086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3038731161521257482}
+  m_Layer: 0
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3038731161521257482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7989046525326943086}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7672230393784923559}
+  m_Father: {fileID: 5169316909360096823}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &8207321655312307236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5169316909360096823}
+  - component: {fileID: 2969870615332293453}
+  m_Layer: 0
+  m_Name: Seagull@AllAnimations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5169316909360096823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207321655312307236}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3038731161521257482}
+  - {fileID: 7935778262214636982}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2969870615332293453
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207321655312307236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 2ac961c860d93b245b56fd2bb4fa84b7, type: 3}
+  m_Controller: {fileID: 9100000, guid: ed9d0f1189caf544c967894bb2ffc868, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &8453214494127686913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6960054708880354365}
+  m_Layer: 0
+  m_Name: SEAGULL_FeatherL_B
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6960054708880354365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8453214494127686913}
+  m_LocalRotation: {x: 0.33157057, y: -0.17429051, z: -0.66479045, w: 0.6463261}
+  m_LocalPosition: {x: -0.1276552, y: 0.0765886, z: 0.011091616}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9037476774455572080}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 4.1528273, y: 2.298733, z: -173.50026}
+--- !u!1 &8555110149835936060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7021017607495091095}
+  m_Layer: 0
+  m_Name: SEAGULL_ R Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7021017607495091095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555110149835936060}
+  m_LocalRotation: {x: -0.0000000057929075, y: -0.00000003281258, z: 0.28490075, w: 0.958557}
+  m_LocalPosition: {x: -0.10312983, y: 0, z: -0.000000009536743}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1041539411590896074}
+  - {fileID: 3654718912673168216}
+  - {fileID: 2326933542578113823}
+  m_Father: {fileID: 6393499387206508869}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.000005801041, y: 0.000002834925, z: 162.3095}
+--- !u!1 &8837871133684836427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3814817725040219088}
+  m_Layer: 0
+  m_Name: SEAGULL_ Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3814817725040219088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8837871133684836427}
+  m_LocalRotation: {x: -4.713374e-13, y: -0.00000052503475, z: 0.18929784, w: 0.98191977}
+  m_LocalPosition: {x: -0.05050844, y: 0.0000000047683715, z: -1.8189894e-14}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_Children:
+  - {fileID: 4586739331744008935}
+  m_Father: {fileID: 8711315663646822914}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -0.000007487383, y: 0.00003407561, z: -17.193216}
+--- !u!1 &9008439670500664092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7935778262214636982}
+  - component: {fileID: 4760320266852399385}
+  m_Layer: 0
+  m_Name: SK_Seagull
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7935778262214636982
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008439670500664092}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.000000009536743, z: -0.000000009536743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5169316909360096823}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!137 &4760320266852399385
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9008439670500664092}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 7450030996920608238, guid: 2ac961c860d93b245b56fd2bb4fa84b7, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -3269901956642560361, guid: 2ac961c860d93b245b56fd2bb4fa84b7, type: 3}
+  m_Bones:
+  - {fileID: 3814817725040219088}
+  - {fileID: 4594549796216304702}
+  - {fileID: 5034092609643450264}
+  - {fileID: 8356764536138682496}
+  - {fileID: 9037476774455572080}
+  - {fileID: 4884018748746312114}
+  - {fileID: 8240318389619623675}
+  - {fileID: 8451321149691907438}
+  - {fileID: 3664332889128350606}
+  - {fileID: 4983578610337747505}
+  - {fileID: 3367816431157820518}
+  - {fileID: 6370585419684310668}
+  - {fileID: 8711315663646822914}
+  - {fileID: 8606108721709019955}
+  - {fileID: 4586739331744008935}
+  - {fileID: 7496566332542980190}
+  - {fileID: 1370984005380634158}
+  - {fileID: 6116309168296501588}
+  - {fileID: 7021017607495091095}
+  - {fileID: 1041539411590896074}
+  - {fileID: 3600547001338412562}
+  - {fileID: 6393499387206508869}
+  - {fileID: 3671627572398539427}
+  - {fileID: 3574971733254926190}
+  - {fileID: 4436228681465337035}
+  - {fileID: 6960054708880354365}
+  - {fileID: 4633907928140217186}
+  - {fileID: 5988428194973668989}
+  - {fileID: 3004146922904873148}
+  - {fileID: 9216778038340007787}
+  - {fileID: 416989353468648619}
+  - {fileID: 6035904465984885689}
+  - {fileID: 1072408162996944372}
+  - {fileID: 6775547484786439153}
+  - {fileID: 3773685982282474259}
+  - {fileID: 2326933542578113823}
+  - {fileID: 3654718912673168216}
+  - {fileID: 1659723619990496956}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 8606108721709019955}
+  m_AABB:
+    m_Center: {x: -0.027531572, y: -0.11926036, z: 0.0000014305115}
+    m_Extent: {x: 0.20676535, y: 0.26872182, z: 0.38803625}
+  m_DirtyAABB: 0
+--- !u!1 &9117239669365134588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8240318389619623675}
+  m_Layer: 0
+  m_Name: SEAGULL_ L HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8240318389619623675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117239669365134588}
+  m_LocalRotation: {x: -2.2889851e-10, y: 4.2609798e-11, z: -0.18300767, w: 0.9831115}
+  m_LocalPosition: {x: -0.059029486, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_Children:
+  - {fileID: 8356764536138682496}
+  m_Father: {fileID: 4594549796216304702}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.00000036059535, y: -0.00000013882271, z: -23.325207}
