@@ -7,6 +7,7 @@ public class TurtleController : MonoBehaviour
     public float slowSpeed;
     public float upSpeed;
 
+    public Animator turtleAnimator;
     public PlayerMoveController playerMoveController;
     public PointController pointController;
     public Animator animatorTurtle;
@@ -23,17 +24,19 @@ public class TurtleController : MonoBehaviour
         startPos = transform.position;
         startEule = transform.eulerAngles;
     }
-    private void OnCollisionEnter(Collision other)
-    {
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("trigger" + other.transform.tag);
         switch (other.transform.tag)
         {
-            case "waste":
+            case "bottle":
+
                 MinusPoint();
                 break;
             case "bird":
                 BackToStartPoint();
                 break;
             case "rock":
+                other.transform.gameObject.SetActive(false);
                 SlowDown();
                 break;
             case "seaweed":
@@ -49,9 +52,15 @@ public class TurtleController : MonoBehaviour
             case "finish":
                 EndGame();
                 break;
+            case "sea":
+                Swim();
+                break;
         }
     }
 
+    void Swim(){
+        turtleAnimator.SetBool("swim", true);
+    }
     void EndGame()
     {
         audioSource.PlayOneShot(winSound);

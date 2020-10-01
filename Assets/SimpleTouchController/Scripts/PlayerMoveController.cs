@@ -6,6 +6,7 @@ using System.Collections;
 public class PlayerMoveController : MonoBehaviour {
 
 	// PUBLIC
+	public Animator turtleAnimator;
 	public SimpleTouchController leftController;
 	public SimpleTouchController rightController;
 	public Transform headTrans;
@@ -50,9 +51,12 @@ public class PlayerMoveController : MonoBehaviour {
 	void UpdateAim(Vector2 value)
 	{
         if(value.x == 0 && value.y == 0)
-        {
+        {	
+			turtleAnimator.SetBool("idle", true);
+			turtleAnimator.SetBool("crawl", false);
             return;
         }
+
 		if(headTrans != null)
 		{
 			Quaternion rot = Quaternion.Euler(0f,
@@ -69,11 +73,9 @@ public class PlayerMoveController : MonoBehaviour {
 		}
 		else
 		{
-
-            //Quaternion rot = Quaternion.Euler(0f,
-            //	transform.localEulerAngles.y + value.x * Time.deltaTime * speedProgressiveLook,
-            //	0f);
-            transform.forward = new Vector3(value.x, 0f, value.y);
+			turtleAnimator.SetBool("crawl", true);
+			turtleAnimator.SetBool("idle", false);
+            transform.forward = new Vector3(value.y, 0f, -value.x);
 		}
 	}
 

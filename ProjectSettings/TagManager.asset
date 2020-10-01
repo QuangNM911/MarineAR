@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - turtle
+  - rock
+  - seaweed
+  - jellyFish
+  - whale
+  - finish
+  - bird
+  - bottle
+  - sea
   layers:
   - Default
   - TransparentFX
