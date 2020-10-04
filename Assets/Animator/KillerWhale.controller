@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-5728753438800947454
+--- !u!1102 &-8719015904265698534
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Take 001
+  m_Name: KillerWhale
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,8 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: c1d1f6d32033f3a4bbde3f95b237c839,
-    type: 3}
+  m_Motion: {fileID: 7400000, guid: 2bf56b05ae8c6844788b3b3c60025b61, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -37,8 +36,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: -5728753438800947454}
-    m_Position: {x: 320, y: 20, z: 0}
+    m_State: {fileID: -8719015904265698534}
+    m_Position: {x: 290, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -48,7 +47,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -5728753438800947454}
+  m_DefaultState: {fileID: -8719015904265698534}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0

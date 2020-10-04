@@ -10,17 +10,25 @@ public class TurtleController : MonoBehaviour
     public Animator turtleAnimator;
     public PlayerMoveController playerMoveController;
     public PointController pointController;
+    public TimeController timeController;
     public Animator animatorTurtle;
+
+    public GameObject notiPopup;
+
+    public GameObject ingameCanvas;
+    public GameObject endCanvas;
     Vector3 startPos, startEule;
 
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public AudioClip pointSound;
     public AudioClip wrongSound;
     public AudioClip deadSound;
     public AudioClip winSound;
 
+    float timeSlow = 0f, timeSpeedup = 0f;
     private void Start()
     {
+        audioSource = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
         startPos = transform.position;
         startEule = transform.eulerAngles;
     }
@@ -29,7 +37,7 @@ public class TurtleController : MonoBehaviour
         switch (other.transform.tag)
         {
             case "bottle":
-
+                other.transform.gameObject.SetActive(false);
                 MinusPoint();
                 break;
             case "bird":
@@ -40,14 +48,16 @@ public class TurtleController : MonoBehaviour
                 SlowDown();
                 break;
             case "seaweed":
+                other.transform.gameObject.SetActive(false);
                 AddPoint();
                 break;
             case "jellyFish":
+                other.transform.gameObject.SetActive(false);
                 AddPoint();
                 SpeedUp();
                 break;
             case "whale":
-                ResetGame();
+                BackToStartPoint();
                 break;
             case "finish":
                 EndGame();
@@ -63,13 +73,20 @@ public class TurtleController : MonoBehaviour
     }
     void EndGame()
     {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        pointController.score += (500 - timeController.timeCount);
         audioSource.PlayOneShot(winSound);
+        pointController.ShowScore();
+        endCanvas.SetActive(true);
+        ingameCanvas.SetActive(false);
     }
     void BackToStartPoint()
     {
+        notiPopup.SetActive(true);
         transform.position = startPos;
         transform.eulerAngles = startEule;
         audioSource.PlayOneShot(deadSound);
+        notiPopup.SetActive(true);
     }
 
     void ResetGame()
@@ -79,29 +96,44 @@ public class TurtleController : MonoBehaviour
 
     void AddPoint()
     {
-        pointController.point += 5;
+
+        pointController.score += 5;
         audioSource.PlayOneShot(pointSound);
     }
 
     void MinusPoint()
     {
-        pointController.point = Mathf.Max(0, pointController.point - 5);
+        pointController.score = Mathf.Max(0, pointController.score - 5);
         audioSource.PlayOneShot(wrongSound);
     }
     void SpeedUp()
     {
-        playerMoveController.speedMovements = upSpeed;
+        timeSpeedup = Time.time + 5f;
         audioSource.PlayOneShot(pointSound);
     }
 
     void SlowDown()
     {
-        playerMoveController.speedMovements = slowSpeed;
+        timeSlow = Time.time + 5f;
         audioSource.PlayOneShot(wrongSound);
     }
 
     void NormalSpeed()
     {
         playerMoveController.speedMovements = speedNormal;
+    }
+
+    private void Update() {
+        if(timeSlow >= Time.time){
+            playerMoveController.speedMovements = slowSpeed;
+        }
+
+        if(timeSpeedup >= Time.time){
+            playerMoveController.speedMovements = upSpeed;
+        }
+
+        if(timeSlow <= Time.time && timeSpeedup <= Time.time){
+            NormalSpeed();
+        }
     }
 }
