@@ -17,6 +17,8 @@ public class TurtleController : MonoBehaviour
 
     public GameObject ingameCanvas;
     public GameObject endCanvas;
+
+    public GameObject effectFinish;
     Vector3 startPos, startEule;
 
     AudioSource audioSource;
@@ -24,6 +26,7 @@ public class TurtleController : MonoBehaviour
     public AudioClip wrongSound;
     public AudioClip deadSound;
     public AudioClip winSound;
+
 
     float timeSlow = 0f, timeSpeedup = 0f;
     private void Start()
@@ -62,17 +65,18 @@ public class TurtleController : MonoBehaviour
             case "finish":
                 EndGame();
                 break;
-            case "sea":
-                Swim();
-                break;
         }
     }
 
+    private void OnCollisionEnter(Collision other) {
+        if(other.transform.tag == "sea") Swim();
+    }
     void Swim(){
         turtleAnimator.SetBool("swim", true);
     }
     void EndGame()
     {
+        effectFinish.SetActive(true);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         pointController.score += (500 - timeController.timeCount);
         audioSource.PlayOneShot(winSound);
@@ -82,6 +86,7 @@ public class TurtleController : MonoBehaviour
     }
     void BackToStartPoint()
     {
+        animatorTurtle.SetBool("swim", false);
         notiPopup.SetActive(true);
         transform.position = startPos;
         transform.eulerAngles = startEule;

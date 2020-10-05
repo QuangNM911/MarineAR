@@ -16,4 +16,10 @@ public class InGameMenu : MonoBehaviour
     public void QuitApp(){
         Application.Quit();
     }
+
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.Space)){
+            Replay();
+        }
+    }
 }

@@ -75,7 +75,7 @@ public class PlayerMoveController : MonoBehaviour {
 		{
 			turtleAnimator.SetBool("crawl", true);
 			turtleAnimator.SetBool("idle", false);
-            transform.forward = new Vector3(value.y, 0f, -value.x);
+            transform.forward = new Vector3(value.x, 0f, value.y);
 		}
 	}
 
