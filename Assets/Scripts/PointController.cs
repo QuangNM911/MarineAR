@@ -10,6 +10,7 @@ public class PointController : MonoBehaviour
     public Text bestScoreText;
     // Start is called before the first frame update
     public void ShowScore(){
+        score = Mathf.Max(0, score);
         int bestScore = PlayerPrefs.GetInt("best", 0);
         if(score > bestScore) {
             bestScore = score;

@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class TurtleController : MonoBehaviour
 {
     public float speedNormal;
     public float slowSpeed;
     public float upSpeed;
 
+    public GameObject canvasAboveTurtle;
+    public Text textAboveTurtle;
+    public GameObject turtleBody;
     public Animator turtleAnimator;
     public PlayerMoveController playerMoveController;
     public PointController pointController;
@@ -27,7 +31,6 @@ public class TurtleController : MonoBehaviour
     public AudioClip deadSound;
     public AudioClip winSound;
 
-
     float timeSlow = 0f, timeSpeedup = 0f;
     private void Start()
     {
@@ -41,6 +44,7 @@ public class TurtleController : MonoBehaviour
         {
             case "bottle":
                 other.transform.gameObject.SetActive(false);
+                StartCoroutine(ShowCanvasAboveTurtle("-5 point"));
                 MinusPoint();
                 break;
             case "bird":
@@ -48,21 +52,25 @@ public class TurtleController : MonoBehaviour
                 break;
             case "rock":
                 other.transform.gameObject.SetActive(false);
+                StartCoroutine(ShowCanvasAboveTurtle("-50% speed"));
                 SlowDown();
                 break;
             case "seaweed":
                 other.transform.gameObject.SetActive(false);
+                StartCoroutine(ShowCanvasAboveTurtle("+5 point"));
                 AddPoint();
                 break;
             case "jellyFish":
                 other.transform.gameObject.SetActive(false);
                 AddPoint();
                 SpeedUp();
+                StartCoroutine(ShowCanvasAboveTurtle("+5 point, +50% speed"));
                 break;
             case "whale":
                 BackToStartPoint();
                 break;
             case "finish":
+                other.transform.gameObject.SetActive(false);
                 EndGame();
                 break;
         }
@@ -76,6 +84,7 @@ public class TurtleController : MonoBehaviour
     }
     void EndGame()
     {
+        turtleBody.SetActive(false);
         effectFinish.SetActive(true);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         pointController.score += (500 - timeController.timeCount);
@@ -89,11 +98,26 @@ public class TurtleController : MonoBehaviour
         animatorTurtle.SetBool("swim", false);
         notiPopup.SetActive(true);
         transform.position = startPos;
-        transform.eulerAngles = startEule;
         audioSource.PlayOneShot(deadSound);
-        notiPopup.SetActive(true);
+        StartCoroutine(HideTurtle());
     }
 
+    IEnumerator HideTurtle(){
+        turtleBody.SetActive(false);
+        playerMoveController.speedMovements = 0;
+        yield return new WaitForSeconds(2.5f);
+        turtleBody.SetActive(true);
+        transform.eulerAngles = startEule;
+        NormalSpeed();
+    }
+
+    IEnumerator ShowCanvasAboveTurtle(string mess){
+        canvasAboveTurtle.transform.position = transform.position + Vector3.up*3 ;
+        canvasAboveTurtle.SetActive(true);
+        textAboveTurtle.text = mess;
+        yield return new WaitForSeconds(.5f);
+        canvasAboveTurtle.SetActive(false);
+    }
     void ResetGame()
     {
 
@@ -101,14 +125,13 @@ public class TurtleController : MonoBehaviour
 
     void AddPoint()
     {
-
         pointController.score += 5;
         audioSource.PlayOneShot(pointSound);
     }
 
     void MinusPoint()
     {
-        pointController.score = Mathf.Max(0, pointController.score - 5);
+        pointController.score -= 5;
         audioSource.PlayOneShot(wrongSound);
     }
     void SpeedUp()
@@ -135,6 +158,7 @@ public class TurtleController : MonoBehaviour
 
         if(timeSpeedup >= Time.time){
             playerMoveController.speedMovements = upSpeed;
+            Debug.Log("Speed up");
         }
 
         if(timeSlow <= Time.time && timeSpeedup <= Time.time){

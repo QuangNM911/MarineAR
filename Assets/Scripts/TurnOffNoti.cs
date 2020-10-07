@@ -12,6 +12,6 @@ public class TurnOffNoti : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > timeNow + 1.5f) gameObject.SetActive(false);
+        if(Time.time > timeNow + 2.5f) gameObject.SetActive(false);
     }
 }
