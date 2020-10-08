@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TimeController : MonoBehaviour
 {
     //public int totalTime;
+    public PointController pointController;
     public Text minText, secondText;
     int min,second;
 
@@ -35,6 +36,7 @@ public class TimeController : MonoBehaviour
     }
 
     void IncreaseClock(){
+        pointController.score--;
         if(second == 60){
             second = 0;
             min++;

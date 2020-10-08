@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PointController : MonoBehaviour
 {
-    public int score = 0;
+    public int score = 500;
     public Text scoreText;
+
+    public Text ingameScore;
     
     public Text bestScoreText;
     // Start is called before the first frame update
@@ -18,5 +20,9 @@ public class PointController : MonoBehaviour
         }
         scoreText.text = "" + score;
         bestScoreText.text = "" + bestScore;
+    }
+
+    private void Update() {
+        ingameScore.text = "" + score;
     }
 }

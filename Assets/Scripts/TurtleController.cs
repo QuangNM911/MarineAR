@@ -87,7 +87,7 @@ public class TurtleController : MonoBehaviour
         turtleBody.SetActive(false);
         effectFinish.SetActive(true);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        pointController.score += (500 - timeController.timeCount);
+        //pointController.score += (500 - timeController.timeCount);
         audioSource.PlayOneShot(winSound);
         pointController.ShowScore();
         endCanvas.SetActive(true);
@@ -112,10 +112,9 @@ public class TurtleController : MonoBehaviour
     }
 
     IEnumerator ShowCanvasAboveTurtle(string mess){
-        canvasAboveTurtle.transform.position = transform.position + Vector3.up*3 ;
         canvasAboveTurtle.SetActive(true);
         textAboveTurtle.text = mess;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.5f);
         canvasAboveTurtle.SetActive(false);
     }
     void ResetGame()
