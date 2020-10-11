@@ -18,6 +18,7 @@ public class CountToStartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timeCount = 3;
         timeNow = Time.time;
         temp = Time.time;
         soundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();

@@ -29,10 +29,12 @@ public class TimeController : MonoBehaviour
         }
     }
 
-    void ResetGame(){
+    public void ResetGame(){
         Debug.Log("EndGame");
         min = second = timeCount = 0;
         timeNow = 0f;
+        minText.text = "00";
+        secondText.text = "00";
     }
 
     void IncreaseClock(){

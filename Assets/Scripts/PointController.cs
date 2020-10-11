@@ -22,6 +22,9 @@ public class PointController : MonoBehaviour
         bestScoreText.text = "" + bestScore;
     }
 
+    public void ResetGame(){
+        score = 500;
+    }
     private void Update() {
         ingameScore.text = "" + score;
     }
