@@ -35,6 +35,8 @@ public class TurtleController : MonoBehaviour
     private void Start()
     {
         audioSource = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
+        //audioSource.PlayOneShot(winSound);
+        turtleAnimator.SetBool("swim", false);
         startPos = transform.position;
         startEule = transform.eulerAngles;
     }
@@ -82,7 +84,7 @@ public class TurtleController : MonoBehaviour
     void Swim(){
         turtleAnimator.SetBool("swim", true);
     }
-    void EndGame()
+    public void EndGame()
     {
         turtleBody.SetActive(false);
         effectFinish.SetActive(true);
