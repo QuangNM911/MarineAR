@@ -248,11 +248,6 @@ public class UniWebViewInterface {
         plugin.CallStatic("setZoomEnabled", name, enabled);
     }
 
-    public static void SetBackButtonEnabled(string name, bool enabled) {
-        CheckPlatform();
-        plugin.CallStatic("setBackButtonEnabled", name, enabled);
-    }
-
     public static void SetUseWideViewPort(string name, bool use) {
         CheckPlatform();
         plugin.CallStatic("setUseWideViewPort", name, use);
@@ -268,14 +263,14 @@ public class UniWebViewInterface {
         plugin.CallStatic("setImmersiveModeEnabled", name, enabled);
     }
 
+    public static void SetUserInteractionEnabled(string name, bool enabled) {
+        CheckPlatform();
+        plugin.CallStatic("setUserInteractionEnabled", name, enabled);
+    }
+
     public static void SetWebContentsDebuggingEnabled(bool enabled) {
         CheckPlatform();
         plugin.CallStatic("setWebContentsDebuggingEnabled", enabled);
-    }
-
-    public static void ShowWebViewDialog(string name, bool show) {
-        CheckPlatform();
-        plugin.CallStatic("showWebViewDialog", name, show);
     }
 
     public static void SetAllowHTTPAuthPopUpWindow(string name, bool flag) {
@@ -296,6 +291,41 @@ public class UniWebViewInterface {
     public static void SetCalloutEnabled(string name, bool flag) {
         CheckPlatform();
         plugin.CallStatic("setCalloutEnabled", name, flag);
+    }
+
+    public static void SetSupportMultipleWindows(string name, bool flag) {
+        CheckPlatform();
+        plugin.CallStatic("setSupportMultipleWindows", name, flag);
+    }
+
+    public static void SetDefaultFontSize(string name, int size) {
+        CheckPlatform();
+        plugin.CallStatic("setDefaultFontSize", name, size);
+    }
+
+    public static float NativeScreenWidth() {
+        CheckPlatform();
+        return plugin.CallStatic<float>("screenWidth");
+    }
+
+    public static float NativeScreenHeight() {
+        CheckPlatform();
+        return plugin.CallStatic<float>("screenHeight");
+    }
+
+    public static void SafeBrowsingInit(string name, string url) { 
+        CheckPlatform();
+        plugin.CallStatic("safeBrowsingInit", name, url);
+    }
+
+    public static void SafeBrowsingSetToolbarColor(string name, float r, float g, float b) {
+        CheckPlatform(); 
+        plugin.CallStatic("safeBrowsingSetToolbarColor", name, r, g, b);
+    }
+
+    public static void SafeBrowsingShow(string name) {
+        CheckPlatform();
+        plugin.CallStatic("safeBrowsingShow", name);
     }
 
     public static void CheckPlatform() {

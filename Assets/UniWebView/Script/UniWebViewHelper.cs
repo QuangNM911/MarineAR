@@ -54,4 +54,14 @@ public class UniWebViewHelper {
     {
         return Path.Combine("file://" + Application.persistentDataPath, path);
     }
+
+    internal static bool IsEditor {
+        get {
+            #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+            return true;
+            #else
+            return false;
+            #endif
+        }
+    }
 }

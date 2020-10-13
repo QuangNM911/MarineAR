@@ -47,10 +47,17 @@ public class UniWebViewNativeListener: MonoBehaviour {
 
     /// <summary>
     /// The web view holder of this listener.
-    /// It will be linked to original web view so you should never set it yourself.
+    /// It will be linked to original web view in web view context, so you should never set it yourself.
+    /// Either `webView` or `safeBrowsing` will be valid in this listener.
     /// </summary>
     [HideInInspector]
     public UniWebView webView;
+
+    // The safe browsing of this listener.
+    /// It will be linked to original safe browsing in browsing context, so you should never set it yourself.
+    /// Either `webView` or `safeBrowsing` will be valid in this listener.
+    [HideInInspector]
+    public UniWebViewSafeBrowsing safeBrowsing;
 
     /// <summary>
     /// Name of current listener. This is a UUID string by which native side could use to find 
@@ -77,6 +84,13 @@ public class UniWebViewNativeListener: MonoBehaviour {
         UniWebViewLogger.Instance.Info("Page Error Received Event. Result: " + result);
         var payload = JsonUtility.FromJson<UniWebViewNativeResultPayload>(result);
         webView.InternalOnPageErrorReceived(payload);
+    }
+
+    public void PageProgressChanged(string result) {
+        float progress;
+        if (float.TryParse(result, out progress)) {
+            webView.InternalOnPageProgressChanged(progress);
+        }
     }
 
     public void ShowTransitionFinished(string identifer) {
@@ -112,16 +126,6 @@ public class UniWebViewNativeListener: MonoBehaviour {
         webView.InternalOnMessageReceived(result);
     }
 
-    public void WebViewKeyDown(string keyCode) {
-        UniWebViewLogger.Instance.Info("Web View Key Down: " + keyCode);
-        int code;
-        if (int.TryParse(keyCode, out code)) {
-            webView.InternalOnWebViewKeyDown(code);
-        } else {
-            UniWebViewLogger.Instance.Critical("Failed in converting key code: " + keyCode);
-        }
-    }
-
     public void WebViewDone(string param) {
         UniWebViewLogger.Instance.Info("Web View Done Event.");
         webView.InternalOnShouldClose();
@@ -130,6 +134,11 @@ public class UniWebViewNativeListener: MonoBehaviour {
     public void WebContentProcessDidTerminate(string param) {
         UniWebViewLogger.Instance.Info("Web Content Process Terminate Event.");
         webView.InternalWebContentProcessDidTerminate();
+    }
+
+    public void SafeBrowsingFinished(string param) {
+        UniWebViewLogger.Instance.Info("Safe Browsing Finished.");
+        safeBrowsing.InternalSafeBrowsingFinished();
     }
 }
 

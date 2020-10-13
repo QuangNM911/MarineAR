@@ -54,12 +54,23 @@ public class UniWebViewInterface {
     public static void SetZoomEnabled(string name, bool enabled) { CheckPlatform(); }
     public static void SetShowToolbar(string name, bool show, bool animated, bool onTop, bool adjustInset) { CheckPlatform(); }
     public static void SetToolbarDoneButtonText(string name, string text) { CheckPlatform(); }
+    public static void SetToolbarGoBackButtonText(string name, string text) { CheckPlatform(); }
+    public static void SetToolbarGoForwardButtonText(string name, string text) { CheckPlatform(); }
+    public static void SetToolbarTintColor(string name, float r, float g, float b) { CheckPlatform(); }
+    public static void SetToolbarTextColor(string name, float r, float g, float b) { CheckPlatform(); }
+    public static void SetUserInteractionEnabled(string name, bool enabled) { CheckPlatform(); }
     public static void SetWebContentsDebuggingEnabled(bool enabled) { CheckPlatform(); }
     public static void SetAllowHTTPAuthPopUpWindow(string name, bool flag) { CheckPlatform(); }
     public static void Print(string name) { CheckPlatform(); }
     public static void SetCalloutEnabled(string name, bool flag) { CheckPlatform(); }
+    public static void SetSupportMultipleWindows(string name, bool flag) { CheckPlatform(); }
     public static void SetDragInteractionEnabled(string name, bool flag) { CheckPlatform(); }
     public static void ScrollTo(string name, int x, int y, bool animated) { CheckPlatform(); }
+    public static float NativeScreenWidth() { CheckPlatform(); return 0.0f; }
+    public static float NativeScreenHeight() { CheckPlatform(); return 0.0f; }
+    public static void SafeBrowsingInit(string name, string url) { CheckPlatform(); }
+    public static void SafeBrowsingSetToolbarColor(string name, float r, float g, float b) { CheckPlatform(); }
+    public static void SafeBrowsingShow(string name) { CheckPlatform(); }
 
     public static void CheckPlatform() {
         if (!alreadyLoggedWarning) {

@@ -19,7 +19,6 @@ public class UniWebViewAndroidStaticListener: MonoBehaviour {
 
         var listener = UniWebViewNativeListener.GetListener(parts[0]);
         if (listener == null) {
-            Debug.Log("Unable to find listener");
             return;
         }
         

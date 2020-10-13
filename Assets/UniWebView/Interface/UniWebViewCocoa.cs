@@ -38,7 +38,9 @@ public class UniWebViewInterface {
 
     private static bool correctPlatform = 
     #if UNITY_EDITOR_OSX
-        Application.platform == RuntimePlatform.OSXEditor;
+        Application.platform == RuntimePlatform.OSXEditor || 
+        Application.platform ==  RuntimePlatform.IPhonePlayer || // Support for Device Simulator package
+        Application.platform ==  RuntimePlatform.Android;        // Support for Device Simulator package
     #elif UNITY_STANDALONE_OSX
         Application.platform == RuntimePlatform.OSXPlayer;
     #else
@@ -422,6 +424,13 @@ public class UniWebViewInterface {
     }
 
     [DllImport(DllLib)]
+    private static extern void uv_setShowToolbarNavigationButtons(string name, bool show);
+    public static void SetShowToolbarNavigationButtons(string name, bool show) {
+        CheckPlatform();
+        uv_setShowToolbarNavigationButtons(name, show);
+    }
+
+    [DllImport(DllLib)]
     private static extern void uv_setToolbarDoneButtonText(string name, string text);
     public static void SetToolbarDoneButtonText(string name, string text) {
         CheckPlatform();
@@ -429,10 +438,45 @@ public class UniWebViewInterface {
     }
 
     [DllImport(DllLib)]
+    private static extern void uv_setGoBackButtonText(string name, string text);
+    public static void SetToolbarGoBackButtonText(string name, string text) { 
+        CheckPlatform(); 
+        uv_setGoBackButtonText(name, text);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_setGoForwardButtonText(string name, string text);
+    public static void SetToolbarGoForwardButtonText(string name, string text) { 
+        CheckPlatform();
+        uv_setGoForwardButtonText(name, text);
+    }
+
+    [DllImport(DllLib)]
     private static extern void uv_setWindowUserResizeEnabled(string name, bool enabled);
     public static void SetWindowUserResizeEnabled(string name, bool enabled) {
         CheckPlatform();
         uv_setWindowUserResizeEnabled(name, enabled);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_setToolbarTintColor(string name, float r, float g, float b);
+    public static void SetToolbarTintColor(string name, float r, float g, float b) {
+        CheckPlatform();
+        uv_setToolbarTintColor(name, r, g, b);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_setToolbarTextColor(string name, float r, float g, float b);
+    public static void SetToolbarTextColor(string name, float r, float g, float b) {
+        CheckPlatform();
+        uv_setToolbarTextColor(name, r, g, b);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_setUserInteractionEnabled(string name, bool enabled);
+    public static void SetUserInteractionEnabled(string name, bool enabled) {
+        CheckPlatform();
+        uv_setUserInteractionEnabled(name, enabled);
     }
 
     [DllImport(DllLib)]
@@ -478,10 +522,75 @@ public class UniWebViewInterface {
     }
 
     [DllImport(DllLib)]
+    private static extern void uv_setSupportMultipleWindows(string name, bool flag);
+    public static void SetSupportMultipleWindows(string name, bool flag) {
+        CheckPlatform();
+        uv_setSupportMultipleWindows(name, flag);
+    }
+
+    [DllImport(DllLib)]
     private static extern void uv_setDragInteractionEnabled(string name, bool flag);
     public static void SetDragInteractionEnabled(string name, bool flag) {
         CheckPlatform();
         uv_setDragInteractionEnabled(name, flag);
+    }
+
+    [DllImport(DllLib)]
+    private static extern float uv_nativeScreenWidth();
+    public static float NativeScreenWidth() {
+        #if UNITY_EDITOR_OSX
+        return Screen.width;
+        #else
+        return uv_nativeScreenWidth();
+        #endif
+    }
+
+    [DllImport(DllLib)]
+    private static extern float uv_nativeScreenHeight();
+    public static float NativeScreenHeight() {
+        #if UNITY_EDITOR_OSX
+        return Screen.height;
+        #else
+        return uv_nativeScreenHeight();
+        #endif
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_safeBrowsingInit(string name, string url);
+    public static void SafeBrowsingInit(string name, string url) {
+        CheckPlatform();
+        if (String.IsNullOrEmpty(name)) {
+            return;
+        }
+        uv_safeBrowsingInit(name, url);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_safeBrowsingShow(string name);
+    public static void SafeBrowsingShow(string name) {
+        CheckPlatform();
+        uv_safeBrowsingShow(name);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_safeBrowsingSetToolbarColor(string name, float r, float g, float b);
+    public static void SafeBrowsingSetToolbarColor(string name, float r, float g, float b) {
+        CheckPlatform();
+        uv_safeBrowsingSetToolbarColor(name, r, g, b);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_safeBrowsingSetToolbarItemColor(string name, float r, float g, float b);
+    public static void SafeBrowsingSetToolbarItemColor(string name, float r, float g, float b) {
+        CheckPlatform();
+        uv_safeBrowsingSetToolbarItemColor(name, r, g, b);
+    }
+
+    [DllImport(DllLib)]
+    private static extern void uv_safeBrowsingDismiss(string name);
+    public static void SafeBrowsingDismiss(string name) {
+        CheckPlatform();
+        uv_safeBrowsingDismiss(name);
     }
 
     public static void CheckPlatform() {

@@ -1,6 +1,6 @@
 //
 //  UniWebView.cs
-//  Created by Wang Wei(@onevcat) on 2017-04-11.
+//  Created by Wang Wei (@onevcat) on 2017-04-11.
 //
 //  This file is a part of UniWebView Project (https://uniwebview.com)
 //  By purchasing the asset, you are allowed to use this code in as many as projects 
@@ -20,16 +20,17 @@ using System.Collections.Generic;
 using System;
 
 /// <summary>
-/// Main class of UniWebView. Any `GameObject` instance with this script represent a webview object in system. 
-/// Use this class to create, load, show and interact with a web view.
+/// Main class of UniWebView. Any `GameObject` instance with this script can represent a webview object in the scene. 
+/// Use this class to create, load, show and interact with a general-purpose web view.
 /// </summary>
 public class UniWebView: MonoBehaviour {
     /// <summary>
     /// Delegate for page started event.
     /// </summary>
     /// <param name="webView">The web view component which raises this event.</param>
-    /// <param name="url">The url which the web view begins to load.</param>
+    /// <param name="url">The url which the web view is about to load.</param>
     public delegate void PageStartedDelegate(UniWebView webView, string url);
+    
     /// <summary>
     /// Raised when the web view starts loading a url.
     /// 
@@ -47,7 +48,7 @@ public class UniWebView: MonoBehaviour {
     /// <summary>
     /// Raised when the web view finished to load a url successfully.
     /// 
-    /// This method will be invoked when a valid response received from the url, regardless the response status.
+    /// This method will be invoked when a valid response received from the url, regardless of the response status.
     /// If a url loading fails before reaching to the server and getting a response, `OnPageErrorReceived` will be 
     /// raised instead.
     /// </summary>
@@ -59,15 +60,26 @@ public class UniWebView: MonoBehaviour {
     /// <param name="webView">The web view component which raises this event.</param>
     /// <param name="errorCode">
     /// The error code which indicates the error type. 
-    /// It is different from systems and platforms.
+    /// It can be different from systems and platforms.
     /// </param>
     /// <param name="errorMessage">The error message which indicates the error.</param>
     public delegate void PageErrorReceivedDelegate(UniWebView webView, int errorCode, string errorMessage);
     /// <summary>
     /// Raised when an error encountered during the loading process. 
-    /// Such as host not found or no Internet connection will raise this event.
+    /// Such as the "host not found" error or "no Internet connection" error will raise this event.
     /// </summary>
     public event PageErrorReceivedDelegate OnPageErrorReceived;
+
+    /// <summary>
+    /// Delegate for page progress changed event.
+    /// </summary>
+    /// <param name="webView">The web view component which raises this event.</param>
+    /// <param name="progress">A value indicates the loading progress of current page. It is a value between 0.0f and 1.0f.</param>
+    public delegate void PageProgressChangedDelegate(UniWebView webView, float progress);
+    /// <summary>
+    /// Raised when the loading progress value changes in current web view.
+    /// </summary>
+    public event PageProgressChangedDelegate OnPageProgressChanged;
 
     /// <summary>
     /// Delegate for message received event.
@@ -82,7 +94,7 @@ public class UniWebView: MonoBehaviour {
     /// a scheme which is observed by current web view. You could use `AddUrlScheme` and 
     /// `RemoveUrlScheme` to manipulate the scheme list.
     /// 
-    /// "uniwebview://" scheme is default in the list, so a clicking on link starts with "uniwebview://"
+    /// "uniwebview://" scheme is default in the list, so a clicking on link starting with "uniwebview://"
     /// will raise this event, if it is not removed.
     /// </summary>
     public event MessageReceivedDelegate OnMessageReceived;
@@ -98,25 +110,10 @@ public class UniWebView: MonoBehaviour {
     /// 
     /// This event is raised when the users close the web view by Back button on Android, Done button on iOS,
     /// or Close button on Unity Editor. It gives a chance to make final decision whether the web view should 
-    /// be closed and destroyed. You should also clean all related resources you created (such as a reference to
-    /// the web view.)
+    /// be closed and destroyed. You can also clean all related resources you created (such as a reference to
+    /// the web view) in this event.
     /// </summary>
     public event ShouldCloseDelegate OnShouldClose;
-
-    /// <summary>
-    /// Delegate for code keycode received event.
-    /// </summary>
-    /// <param name="webView">The web view component which raises this event.</param>
-    /// <param name="keyCode">The key code of pressed key. See [Android API for keycode](https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_0) to know the possible values.</param>
-    public delegate void KeyCodeReceivedDelegate(UniWebView webView, int keyCode);
-    /// <summary>
-    /// Raised when a key (like back button or volume up) on the device is pressed.
-    /// 
-    /// This event only raised on Android. It is useful when you disabled the back button but still need to 
-    /// get the back button event. On iOS, user's key action is not avaliable and this event will never be 
-    /// raised.
-    /// </summary>
-    public event KeyCodeReceivedDelegate OnKeyCodeReceived;
 
     /// <summary>
     /// Delegate for orientation changed event.
@@ -169,11 +166,10 @@ public class UniWebView: MonoBehaviour {
     private Dictionary<String, Action> actions = new Dictionary<String, Action>();
     private Dictionary<String, Action<UniWebViewNativeResultPayload>> payloadActions = new Dictionary<String, Action<UniWebViewNativeResultPayload>>();
 
-    
     [SerializeField]
     private Rect frame;
     /// <summary>
-    /// Get or Set the frame of current web view. The value is based on current `Screen.width` and `Screen.height`.
+    /// Gets or sets the frame of current web view. The value is based on current `Screen.width` and `Screen.height`.
     /// The first two values of `Rect` is `x` and `y` position and the followed two `width` and `height`.
     /// </summary>
     public Rect Frame {
@@ -206,6 +202,8 @@ public class UniWebView: MonoBehaviour {
 
     private bool started;
 
+    private bool backButtonEnabled = true;
+
     /// <summary>
     /// The url of current loaded web page.
     /// </summary>
@@ -214,7 +212,7 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
-    /// Update and set current frame of web view to match the setting.
+    /// Updates and sets current frame of web view to match the setting.
     /// 
     /// This is useful if the `referenceRectTransform` is changed and you need to sync the frame change
     /// to the web view. This method follows the frame determining rules.
@@ -264,10 +262,13 @@ public class UniWebView: MonoBehaviour {
                     break;
             }
 
-            float x = topLeft.x;
-            float y = Screen.height - topLeft.y;
-            float width = bottomRight.x - topLeft.x;
-            float height = topLeft.y - bottomRight.y;
+            float widthFactor = (float)UniWebViewInterface.NativeScreenWidth() / (float)Screen.width;
+            float heightFactor = (float)UniWebViewInterface.NativeScreenHeight() / (float)Screen.height;
+
+            float x = topLeft.x * widthFactor;
+            float y = (Screen.height - topLeft.y) * heightFactor;
+            float width = (bottomRight.x - topLeft.x) * widthFactor;
+            float height = (topLeft.y - bottomRight.y) * heightFactor;
             return new Rect(x, y, width, height);
         }
     }
@@ -292,7 +293,6 @@ public class UniWebView: MonoBehaviour {
 
     void Start() {
         if (showOnStart) {
-            SetJavaScriptEnabled(true);
             Show();
         }
         if (!string.IsNullOrEmpty(urlOnStart)) {
@@ -315,13 +315,19 @@ public class UniWebView: MonoBehaviour {
                 UpdateFrame();
             }
         }
+
+        if (backButtonEnabled && Input.GetKeyUp(KeyCode.Escape)) {
+            UniWebViewLogger.Instance.Info("Received Back button, handling GoBack or close web view.");
+            if (CanGoBack) {
+                GoBack();
+            } else {
+                InternalOnShouldClose();
+            }
+        }
     }
 
     void OnEnable() {
         if (started) {
-            #if UNITY_ANDROID && !UNITY_EDITOR
-            UniWebViewInterface.ShowWebViewDialog(listener.Name, true);
-            #endif
             Show();
         }
     }
@@ -329,14 +335,11 @@ public class UniWebView: MonoBehaviour {
     void OnDisable() {
         if (started) {
             Hide();
-            #if UNITY_ANDROID && !UNITY_EDITOR
-            UniWebViewInterface.ShowWebViewDialog(listener.Name, false);
-            #endif
         }
     }
 
     /// <summary>
-    /// Load a url in current web view.
+    /// Loads a url in current web view.
     /// </summary>
     /// <param name="url">The url to be loaded. This url should start with `http://` or `https://` scheme. You could even load a non-ascii url text if it is valid.</param>
     /// <param name="skipEncoding">
@@ -352,7 +355,7 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
-    /// Load an HTML string in current web view.
+    /// Loads an HTML string in current web view.
     /// </summary>
     /// <param name="htmlString">The HTML string to use as the contents of the webpage.</param>
     /// <param name="baseUrl">The url to use as the page's base url.</param>
@@ -382,11 +385,8 @@ public class UniWebView: MonoBehaviour {
     /// Gets whether there is a back page in the back-forward list that can be navigated to.
     /// </summary>
     public bool CanGoBack {
-        // get {
-        //     return UniWebViewInterface.CanGoBack(listener.Name);
-        // }
-        get{
-            return false;
+        get {
+            return UniWebViewInterface.CanGoBack(listener.Name);
         }
     }
 
@@ -423,10 +423,17 @@ public class UniWebView: MonoBehaviour {
 
     /// <summary>
     /// Sets the web view visible on screen.
+    /// 
+    /// If you pass `false` and `UniWebViewTransitionEdge.None` to the first two parameters, it means no animation will
+    /// be applied when showing. So the `duration` parameter will not be taken into account. Otherwise, when 
+    /// either or both `fade` and `edge` set, the showing operation will be animated.
+    /// 
+    /// Regardless of there is an animation or not, the `completionHandler` will be called if not `null` when the web 
+    /// view showing finishes.
     /// </summary>
     /// <param name="fade">Whether show with a fade in animation. Default is `false`.</param>
     /// <param name="edge">The edge from which the web view showing. It simulates a modal effect when showing a web view. Default is `UniWebViewTransitionEdge.None`.</param>
-    /// <param name="duration">Duration of showing animation. Default is `0.4f`.</param>
+    /// <param name="duration">Duration of the showing animation. Default is `0.4f`.</param>
     /// <param name="completionHandler">Completion handler which will be called when showing finishes. Default is `null`.</param>
     /// <returns>A bool value indicates whether the showing operation started.</returns>
     public bool Show(bool fade = false, UniWebViewTransitionEdge edge = UniWebViewTransitionEdge.None, 
@@ -451,6 +458,13 @@ public class UniWebView: MonoBehaviour {
 
     /// <summary>
     /// Sets the web view invisible from screen.
+    /// 
+    /// If you pass `false` and `UniWebViewTransitionEdge.None` to the first two parameters, it means no animation will 
+    /// be applied when hiding. So the `duration` parameter will not be taken into account. Otherwise, when either or 
+    /// both `fade` and `edge` set, the hiding operation will be animated.
+    /// 
+    /// Regardless there is an animation or not, the `completionHandler` will be called if not `null` when the web view
+    /// hiding finishes.
     /// </summary>
     /// <param name="fade">Whether hide with a fade in animation. Default is `false`.</param>
     /// <param name="edge">The edge from which the web view hiding. It simulates a modal effect when hiding a web view. Default is `UniWebViewTransitionEdge.None`.</param>
@@ -650,9 +664,10 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
-    /// Set allow auto play for current web view. By default, 
+    /// Sets allow auto play for current web view. By default, 
     /// users need to touch the play button to start playing a media resource.
-    /// By setting this to `true`, you could start the playing automatically through
+    /// 
+    /// By setting this to `true`, you can start the playing automatically through
     /// corresponding media tag attributes.
     /// </summary>
     /// <param name="flag">A flag indicates whether autoplaying of media is allowed or not.</param>
@@ -661,7 +676,7 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
-    /// Set allow inline play for current web view. By default, on iOS, the video 
+    /// Sets allow inline play for current web view. By default, on iOS, the video 
     /// can only be played in a new full screen view.
     /// By setting this to `true`, you could play a video inline the page, instead of opening 
     /// a new full screen window.
@@ -695,7 +710,7 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
-    /// Clean web view cache. This removes cached local data of web view. 
+    /// Cleans web view cache. This removes cached local data of web view. 
     /// 
     /// If you need to clear all cookies, use `ClearCookies` instead.
     /// </summary>
@@ -778,7 +793,7 @@ public class UniWebView: MonoBehaviour {
     /// <summary>
     /// Gets or sets the alpha value of the whole web view.
     /// 
-    /// You could make the game scene behind web view visible to make the web view transparent.
+    /// You can make the game scene behind web view visible to make the web view transparent.
     /// 
     /// Default is `1.0f`, which means totally opaque. Set it to `0.0f` will make the web view totally transparent.
     /// </summary>
@@ -885,9 +900,7 @@ public class UniWebView: MonoBehaviour {
     /// </summary>
     /// <param name="enabled">Whether the back button should perform go back or closing operation to web view.</param>
     public void SetBackButtonEnabled(bool enabled) {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-        UniWebViewInterface.SetBackButtonEnabled(listener.Name, enabled);
-        #endif
+        this.backButtonEnabled = enabled;
     }
 
     /// <summary>
@@ -911,19 +924,6 @@ public class UniWebView: MonoBehaviour {
         UniWebViewInterface.SetLoadWithOverviewMode(listener.Name, flag);
         #endif
     }
-
-    /// <summary>
-    /// Sets whether the web view should behave in immersive mode, that is, 
-    /// hides the status bar and navigation bar with a sticky style.
-    /// 
-    /// This method is only for Android. Default is enabled.
-    /// </summary>
-    /// <param name="enabled"></param>
-    public void SetImmersiveModeEnabled(bool enabled) {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-        UniWebViewInterface.SetImmersiveModeEnabled(listener.Name, enabled);
-        #endif
-    } 
 
     /// <summary>
     /// Sets whether to show a toolbar which contains navigation buttons and Done button.
@@ -950,16 +950,104 @@ public class UniWebView: MonoBehaviour {
     /// <summary>
     /// Sets the done button text in toolbar.
     /// 
-    /// By default, UniWebView will show a "Done" button at bottom-right corner in the 
+    /// By default, UniWebView will show a "Done" button at right size in the 
     /// toolbar. You could change its title by passing a text.
     /// 
     /// This method is only for iOS, since there is no toolbar on Android.
     /// </summary>
     /// <param name="text">The text needed to be set as done button title.</param>
     public void SetToolbarDoneButtonText(string text) {
-        #if (UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IOS) && !UNITY_EDITOR_WIN
+        #if UNITY_IOS && !UNITY_EDITOR
         UniWebViewInterface.SetToolbarDoneButtonText(listener.Name, text);
         #endif
+    }
+
+    /// <summary>
+    /// Sets the go back button text in toolbar.
+    /// 
+    /// By default, UniWebView will show a back arrow at the left side in the 
+    /// toolbar. You could change its text.
+    /// 
+    /// This method is only for iOS and macOS Editor, since there is no toolbar on Android.
+    /// </summary>
+    /// <param name="text">The text needed to be set as go back button.</param>
+    public void SetToolbarGoBackButtonText(string text) {
+        #if (UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IOS) && !UNITY_EDITOR_WIN
+        UniWebViewInterface.SetToolbarGoBackButtonText(listener.Name, text);
+        #endif
+    }
+
+    /// <summary>
+    /// Sets the go forward button text in toolbar.
+    /// 
+    /// By default, UniWebView will show a forward arrow at the left side in the 
+    /// toolbar. You could change its text.
+    /// 
+    /// This method is only for iOS and macOS Editor, since there is no toolbar on Android.
+    /// </summary>
+    /// <param name="text">The text needed to be set as go forward button.</param>
+    public void SetToolbarGoForwardButtonText(string text) {
+        #if (UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IOS) && !UNITY_EDITOR_WIN
+        UniWebViewInterface.SetToolbarGoForwardButtonText(listener.Name, text);
+        #endif
+    }
+
+    /// <summary>
+    /// Sets the background tint color for the toolbar.
+    /// 
+    /// By default, UniWebView uses a default half-transparent iOS standard background for toolbar.
+    /// You can change it by setting a new opaque color.
+    /// 
+    /// This method is only for iOS, since there is no toolbar on Android.
+    /// </summary>
+    /// <param name="color">The color should be used for the background tint of the toolbar.</param>
+    public void SetToolbarTintColor(Color color) {
+        #if UNITY_IOS && !UNITY_EDITOR
+        UniWebViewInterface.SetToolbarTintColor(listener.Name, color.r, color.g, color.b);
+        #endif
+    }
+
+    /// <summary>
+    /// Sets the button text color for the toolbar.
+    /// 
+    /// By default, UniWebView uses the default text color on iOS, which is blue for most cases.
+    /// You can change it by setting a new opaque color.
+    /// 
+    /// This method is only for iOS, since there is no toolbar on Android.
+    /// </summary>
+    /// <param name="color">The color should be used for the button text of the toolbar.</param>
+    public void SetToolbarTextColor(Color color) {
+        #if UNITY_IOS && !UNITY_EDITOR
+        UniWebViewInterface.SetToolbarTextColor(listener.Name, color.r, color.g, color.b);
+        #endif
+    }
+
+    /// <summary>
+    /// Sets the visibility of navigation buttons, such as "Go Back" and "Go Forward", on toolbar.
+    /// 
+    /// By default, UniWebView will show the "Go Back" and "Go Forward" navigation buttons on the toolbar.
+    /// Users can use these buttons to perform go back or go forward action just like in a browser. If the navigation
+    /// model is not for your case, call this method with `false` as `show` parameter to hide them.
+    /// 
+    /// This method is only for iOS, since there is no toolbar on Android.
+    /// </summary>
+    /// <param name="show">Whether the navigation buttons on the toolbar should show or hide.</param>
+    public void SetShowToolbarNavigationButtons(bool show) {
+        #if (UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX || UNITY_IOS) && !UNITY_EDITOR_WIN
+        UniWebViewInterface.SetShowToolbarNavigationButtons(listener.Name, show);
+        #endif
+    }
+
+    /// <summary>
+    /// Sets whether the web view can receive user interaction or not.
+    /// 
+    /// By setting this to `false`, the web view will not accept any user touch event so your users cannot tap links or
+    /// scroll the page.
+    /// 
+    /// </summary>
+    /// <param name="enabled">Whether the user interaction should be enabled or not.</param>
+    public void SetUserInteractionEnabled(bool enabled) {
+        UniWebViewInterface.SetUserInteractionEnabled(listener.Name, enabled);
     }
 
     /// <summary>
@@ -1051,6 +1139,45 @@ public class UniWebView: MonoBehaviour {
     }
 
     /// <summary>
+    /// Sets whether the web view should support a pop up web view triggered by user in a new tab.
+    /// 
+    /// In a general web browser (such as Google Chrome or Safari), a URL with `target="_blank"` attribute is intended 
+    /// to be opened in a new tab. However, in the context of web view, there is no way to handle new tabs without 
+    /// proper configurations. Due to that, by default UniWebView will ignore the `target="_blank"` and try to open 
+    /// the page in the same web view if that kind of link is pressed.
+    /// 
+    /// It works for most cases, but if this is a problem to your app logic, you can change this behavior by calling 
+    /// this method with `true`. It enables the "opening in new tab" behavior in a limited way, by adding the new tab 
+    /// web view above to the current web view, with the same size and position. When the opened new tab is closed, 
+    /// it will be removed from the view hierarchy automatically.
+    /// 
+    /// </summary>
+    /// <param name="enabled">
+    /// Whether to support multiple windows. If `true`, the `target="_blank"` link will be opened in a new web view.
+    /// Default is `false`.
+    /// </param>
+    public void SetSupportMultipleWindows(bool enabled) {
+        UniWebViewInterface.SetSupportMultipleWindows(listener.Name, enabled);
+    }
+
+    /// <summary>
+    /// Sets the default font size used in the web view.
+    /// 
+    /// On Android, the web view font size can be affected by the system font scale setting. Use this method to set the 
+    /// font size in a more reasonable way, by giving the web view another default font size with the system font scale 
+    /// considered. It can removes or reduces the effect of system font scale when displaying the web content.
+    /// 
+    /// This method only works on Android. On iOS, this method does nothing since the web view will respect the font 
+    /// size setting in your CSS styles.
+    /// </summary>
+    /// <param name="size">The target default font size set to the web view.</param>
+    public void SetDefaultFontSize(int size) {
+        #if UNITY_ANDROID && !UNITY_EDITOR
+        UniWebViewInterface.SetDefaultFontSize(listener.Name, size);
+        #endif
+    }
+
+    /// <summary>
     /// Sets whether the drag interaction should be enabled on iOS.
     /// 
     /// From iOS 11, the iPad web view supports the drag interaction when user long presses an image, link or text.
@@ -1102,12 +1229,6 @@ public class UniWebView: MonoBehaviour {
         UniWebViewNativeListener.RemoveListener(listener.Name);
         UniWebViewInterface.Destroy(listener.Name);
         Destroy(listener.gameObject);
-    }
-
-    void OnApplicationPause(bool pause) {
-        #if UNITY_ANDROID && !UNITY_EDITOR
-        UniWebViewInterface.ShowWebViewDialog(listener.Name, !pause);
-        #endif
     }
 
     /* //////////////////////////////////////////////////////
@@ -1183,17 +1304,17 @@ public class UniWebView: MonoBehaviour {
         }
     }
 
-    internal void InternalOnMessageReceived(string result) {
-         var message = new UniWebViewMessage(result);
-         if (OnMessageReceived != null) {
-             OnMessageReceived(this, message);
-         }
+    internal void InternalOnPageProgressChanged(float progress) {
+        if (OnPageProgressChanged != null) {
+            OnPageProgressChanged(this, progress);
+        }
     }
 
-    internal void InternalOnWebViewKeyDown(int keyCode) {
-        if (OnKeyCodeReceived != null) {
-            OnKeyCodeReceived(this, keyCode);
-        }
+    internal void InternalOnMessageReceived(string result) {
+         if (OnMessageReceived != null) {
+             var message = new UniWebViewMessage(result);
+             OnMessageReceived(this, message);
+         }
     }
 
     internal void InternalOnShouldClose() {
@@ -1213,10 +1334,38 @@ public class UniWebView: MonoBehaviour {
         }
     }
 
-    [Obsolete("OreintationChangedDelegate is a typo and deprecated. Use `OrientationChangedDelegate` instead.", true)]
-    public delegate void OreintationChangedDelegate(UniWebView webView, ScreenOrientation orientation);
+    [Obsolete("SetImmersiveModeEnabled is deprecated. Now UniWebView always respect navigation bar/status bar settings from Unity.", false)]
+    /// <summary>
+    /// Sets whether the web view should behave in immersive mode, that is, 
+    /// hides the status bar and navigation bar with a sticky style.
+    /// 
+    /// This method is only for Android. Default is enabled.
+    /// </summary>
+    /// <param name="enabled"></param>
+    public void SetImmersiveModeEnabled(bool enabled) {
+        Debug.LogError(
+            "SetImmersiveModeEnabled is removed in UniWebView 4." + 
+            "Now UniWebView always respect navigation bar/status bar settings from Unity."
+        );
+    } 
 
-    [Obsolete("OnOreintationChanged is a typo and deprecated. Use `OnOrientationChanged` instead.", true)]
+    [Obsolete("KeyCodeReceivedDelegate is deprecated. Now UniWebView never intercepts device key code events. Check `Input.GetKeyUp` instead.", false)]
+    /// <summary>
+    /// Delegate for code keycode received event.
+    /// </summary>
+    /// <param name="webView">The web view component which raises this event.</param>
+    /// <param name="keyCode">The key code of pressed key. See [Android API for keycode](https://developer.android.com/reference/android/view/KeyEvent.html#KEYCODE_0) to know the possible values.</param>
+    public delegate void KeyCodeReceivedDelegate(UniWebView webView, int keyCode);
+
+    [Obsolete("OnKeyCodeReceived is deprecated and never called. Now UniWebView never intercepts device key code events. Check `Input.GetKeyUp` instead.", false)]
+    /// <summary>
+    /// Raised when a key (like back button or volume up) on the device is pressed.
+    /// 
+    /// This event only raised on Android. It is useful when you disabled the back button but still need to 
+    /// get the back button event. On iOS, user's key action is not avaliable and this event will never be 
+    /// raised.
+    /// </summary>
     #pragma warning disable CS0067
-    public event OrientationChangedDelegate OnOreintationChanged;
+    public event KeyCodeReceivedDelegate OnKeyCodeReceived;
+
 }
