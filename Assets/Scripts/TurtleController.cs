@@ -12,6 +12,8 @@ public class TurtleController : MonoBehaviour
     public Text textAboveTurtle;
     public GameObject turtleBody;
     public Animator turtleAnimator;
+
+    public InGameMenu inGameMenu;
     public PlayerMoveController playerMoveController;
     public PointController pointController;
     public TimeController timeController;
@@ -46,7 +48,7 @@ public class TurtleController : MonoBehaviour
         {
             case "bottle":
                 other.transform.gameObject.SetActive(false);
-                StartCoroutine(ShowCanvasAboveTurtle("-5 point"));
+                StartCoroutine(ShowCanvasAboveTurtle("-5 分"));
                 MinusPoint();
                 break;
             case "bird":
@@ -54,25 +56,26 @@ public class TurtleController : MonoBehaviour
                 break;
             case "rock":
                 other.transform.gameObject.SetActive(false);
-                StartCoroutine(ShowCanvasAboveTurtle("-50% speed"));
+                StartCoroutine(ShowCanvasAboveTurtle("-50% 速度"));
                 SlowDown();
                 break;
             case "seaweed":
                 other.transform.gameObject.SetActive(false);
-                StartCoroutine(ShowCanvasAboveTurtle("+5 point"));
+                StartCoroutine(ShowCanvasAboveTurtle("+5 分"));
                 AddPoint();
                 break;
             case "jellyFish":
                 other.transform.gameObject.SetActive(false);
                 AddPoint();
                 SpeedUp();
-                StartCoroutine(ShowCanvasAboveTurtle("+5 point, +50% speed"));
+                StartCoroutine(ShowCanvasAboveTurtle("+5 分, +50% 速度"));
                 break;
             case "whale":
                 BackToStartPoint();
                 break;
             case "finish":
                 other.transform.gameObject.SetActive(false);
+                turtleAnimator.SetBool("swim", false);
                 EndGame();
                 break;
         }
@@ -97,6 +100,7 @@ public class TurtleController : MonoBehaviour
     }
     void BackToStartPoint()
     {
+        inGameMenu.ResetAllItem();
         animatorTurtle.SetBool("swim", false);
         notiPopup.SetActive(true);
         transform.position = startPos;

@@ -42,6 +42,20 @@ public class InGameMenu : MonoBehaviour
         //SceneManager.LoadScene(1);
     }
 
+    public void ResetAllItem(){
+        simpleTouchController.EndDrag();
+        foreach(GameObject go in listGameObectNeedDisable){
+            go.SetActive(false);
+        }
+        foreach(GameObject go in listGameObjectNeedActive){
+            go.SetActive(true);
+        }
+        turtle.SetActive(true);
+        turtleBody.SetActive(true);
+        turtle.transform.position = turtlePos;
+        turtle.transform.eulerAngles = turtleEules;
+    }
+
     public void QuitApp(){
         Application.Quit();
     }

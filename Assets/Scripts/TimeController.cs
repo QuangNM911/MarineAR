@@ -10,7 +10,7 @@ public class TimeController : MonoBehaviour
     public TurtleController turtleController;
     int min,second;
 
-    int timeCount = 0;
+    public int timeCount;
     float timeNow = 0;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,9 @@ public class TimeController : MonoBehaviour
 
     public void ResetGame(){
         Debug.Log("EndGame");
-        min = second = timeCount = 0;
+        timeCount = 0;
+        min = totalTime/60;
+        second = totalTime%60;
         timeNow = 0f;
         minText.text = "00";
         secondText.text = "00";

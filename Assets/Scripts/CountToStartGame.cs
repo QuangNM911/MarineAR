@@ -8,6 +8,8 @@ public class CountToStartGame : MonoBehaviour
     public Text countText;
     public GameObject controlCanvas;
 
+    public GameObject startOnPlaneCanvas;
+
     public AudioClip tiktok;
 
     public AudioClip startSound;
@@ -18,6 +20,7 @@ public class CountToStartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startOnPlaneCanvas.SetActive(true);
         timeCount = 3;
         timeNow = Time.time;
         temp = Time.time;
