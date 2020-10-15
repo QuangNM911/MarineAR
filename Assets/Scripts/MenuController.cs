@@ -8,6 +8,8 @@ public class MenuController : MonoBehaviour
     AudioSource backgroundMusic;
     AudioSource soundEffect;
 
+    public Image loadingBarImage;
+
     public GameObject infoCanvas;
 
     public GameObject callCanvas;
@@ -30,7 +32,15 @@ public class MenuController : MonoBehaviour
         if(soundEffect.volume == 0) soundEffectButton.color = disableButtonColor;
     }
     public void PlayAR(){
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadARScene());
+    }
+
+    IEnumerator LoadARScene(){
+        AsyncOperation ao = SceneManager.LoadSceneAsync(1);
+        while(!ao.isDone){
+            loadingBarImage.fillAmount = Mathf.Clamp01(ao.progress/.9f);
+            yield return null;
+        }
     }
 
     public void OnOffBackgroundMusic(){

@@ -5,8 +5,12 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 public class PlaceObject : MonoBehaviour
 {
+    public Vector3 addToPlacePosition;
     [SerializeField]
     GameObject objectToPlace;
+
+    [SerializeField]
+    GameObject mapPlayGame;
 
     [SerializeField]
     ARPlaneManager aRPlaneManager;
@@ -39,8 +43,10 @@ public class PlaceObject : MonoBehaviour
                     Pose hitPose = raycastHits[0].pose;
                     //Instantiate(objectToPlace, hitPose.position, hitPose.rotation);
                     objectToPlace.SetActive(true);
-                    objectToPlace.transform.position = hitPose.position;
-                    objectToPlace.transform.rotation = hitPose.rotation;
+                    //objectToPlace.transform.position = hitPose.position;
+                    objectToPlace.transform.position = hitPose.position + addToPlacePosition;
+                    mapPlayGame.transform.rotation = hitPose.rotation;
+                    //objectToPlace.transform.rotation = hitPose.rotation;
                     foreach(var plane in listPlane){
                         plane.gameObject.SetActive(false);
                     }

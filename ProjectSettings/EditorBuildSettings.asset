@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/UniWebView/Demo/UniWebViewDemo.unity
     guid: 938c077f40a814d4584ce2ad17947cf3
+  - enabled: 0
+    path: Assets/Scenes/TestGame.unity
+    guid: 8e89266a0f945b44fa0b08c9e2329be8
   m_configObjects:
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: db66bb0b1856a294f9707751cc720dcd,
       type: 2}

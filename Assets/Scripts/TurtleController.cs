@@ -6,7 +6,11 @@ public class TurtleController : MonoBehaviour
 {
     public float speedNormal;
     public float slowSpeed;
+
+    public float rockSlowSpeed;
     public float upSpeed;
+
+
 
     public GameObject canvasAboveTurtle;
     public Text textAboveTurtle;
@@ -33,7 +37,7 @@ public class TurtleController : MonoBehaviour
     public AudioClip deadSound;
     public AudioClip winSound;
 
-    float timeSlow = 0f, timeSpeedup = 0f;
+    float timeSlow = 0f, timeSpeedup = 0f, timeSlowTriggerRock = 0f;
     private void Start()
     {
         audioSource = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
@@ -57,7 +61,7 @@ public class TurtleController : MonoBehaviour
             case "rock":
                 other.transform.gameObject.SetActive(false);
                 StartCoroutine(ShowCanvasAboveTurtle("-50% 速度"));
-                SlowDown();
+                SlowRock();
                 break;
             case "seaweed":
                 other.transform.gameObject.SetActive(false);
@@ -123,10 +127,6 @@ public class TurtleController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         canvasAboveTurtle.SetActive(false);
     }
-    void ResetGame()
-    {
-
-    }
 
     void AddPoint()
     {
@@ -151,6 +151,11 @@ public class TurtleController : MonoBehaviour
         audioSource.PlayOneShot(wrongSound);
     }
 
+    void SlowRock()
+    {
+        timeSlow = Time.time + 3f;
+        audioSource.PlayOneShot(wrongSound);
+    }
     void NormalSpeed()
     {
         playerMoveController.speedMovements = speedNormal;
@@ -166,7 +171,11 @@ public class TurtleController : MonoBehaviour
             Debug.Log("Speed up");
         }
 
-        if(timeSlow <= Time.time && timeSpeedup <= Time.time){
+        if(timeSlowTriggerRock >= Time.time){
+            playerMoveController.speedMovements = rockSlowSpeed;
+        }
+
+        if(timeSlow <= Time.time && timeSpeedup <= Time.time && timeSlowTriggerRock <= Time.time){
             NormalSpeed();
         }
     }
