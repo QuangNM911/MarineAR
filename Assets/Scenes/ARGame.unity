@@ -858,6 +858,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8557273640211778136, guid: 336c9cf53efd6b64d89fb699ad778d91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
       propertyPath: cub
@@ -867,27 +872,22 @@ PrefabInstance:
     - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
       propertyPath: slowSpeed
-      value: 0.065
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
       propertyPath: rockSlowSpeed
-      value: 0.055
-      objectReference: {fileID: 0}
-    - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
-        type: 3}
-      propertyPath: speedNormal
       value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
-      propertyPath: upSpeed
-      value: 0.09
+      propertyPath: speedNormal
+      value: 0.12
       objectReference: {fileID: 0}
-    - target: {fileID: 8557273640211778136, guid: 336c9cf53efd6b64d89fb699ad778d91,
+    - target: {fileID: 4739286478260464493, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: upSpeed
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4739286477595099814, guid: 336c9cf53efd6b64d89fb699ad778d91,
         type: 3}
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f81cf897e69514983d174ec631b4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addToPlacePosition: {x: 0, y: -2, z: 0}
+  addToPlacePosition: {x: 0, y: -2, z: 2}
   objectToPlace: {fileID: 1548243470}
   mapPlayGame: {fileID: 788910642}
   aRPlaneManager: {fileID: 1921430168}
