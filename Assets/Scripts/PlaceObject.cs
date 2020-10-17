@@ -44,9 +44,11 @@ public class PlaceObject : MonoBehaviour
                     //Instantiate(objectToPlace, hitPose.position, hitPose.rotation);
                     objectToPlace.SetActive(true);
                     //objectToPlace.transform.position = hitPose.position;
-                    objectToPlace.transform.position = hitPose.position + addToPlacePosition;
+                    mapPlayGame.transform.position = hitPose.position + addToPlacePosition;
                     mapPlayGame.transform.rotation = hitPose.rotation;
-                    //objectToPlace.transform.rotation = hitPose.rotation;
+                    Vector3 v = mapPlayGame.transform.eulerAngles;
+                    v.x = v.z = 0;
+                    mapPlayGame.transform.eulerAngles = v;
                     foreach(var plane in listPlane){
                         plane.gameObject.SetActive(false);
                     }

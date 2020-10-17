@@ -58,7 +58,7 @@ public class TurtleController : MonoBehaviour
                 break;
             case "rock":
                 other.transform.gameObject.SetActive(false);
-                StartCoroutine(ShowCanvasAboveTurtle("-50% 速度"));
+                StartCoroutine(ShowCanvasAboveTurtle("-20% 速度"));
                 SlowDown();
                 break;
             case "seaweed":
@@ -67,13 +67,14 @@ public class TurtleController : MonoBehaviour
                 AddPoint();
                 break;
             case "jellyFish":
-                other.transform.gameObject.SetActive(false);
+                StartCoroutine(RebornJellyFish(other.gameObject));
                 AddPoint();
                 SpeedUp();
-                StartCoroutine(ShowCanvasAboveTurtle("+5 分, +50% 速度"));
+                StartCoroutine(ShowCanvasAboveTurtle("+5 分, +30% 速度"));
                 break;
             case "whale":
                 BackToStartPoint();
+                turtleAnimator.SetBool("swim", false);
                 break;
             case "finish":
                 other.transform.gameObject.SetActive(false);
@@ -83,6 +84,11 @@ public class TurtleController : MonoBehaviour
         }
     }
 
+    IEnumerator RebornJellyFish(GameObject jellyFish){
+        jellyFish.gameObject.SetActive(false);
+        yield return new WaitForSeconds(Random.Range(1.5f,2f));
+        jellyFish.gameObject.SetActive(true);
+    }
     private void OnCollisionEnter(Collision other) {
         if(other.transform.tag == "sea") Swim();
     }
@@ -102,17 +108,18 @@ public class TurtleController : MonoBehaviour
     }
     void BackToStartPoint()
     {
+        Debug.Log("BackToStart");
         inGameMenu.ResetAllItem();
         animatorTurtle.SetBool("swim", false);
         notiPopup.SetActive(true);
         transform.position = startPos;
         audioSource.PlayOneShot(deadSound);
+        playerMoveController.speedMovements = 0;
         StartCoroutine(HideTurtle());
     }
 
     IEnumerator HideTurtle(){
         turtleBody.SetActive(false);
-        playerMoveController.speedMovements = 0;
         yield return new WaitForSeconds(2.5f);
         turtleBody.SetActive(true);
         transform.eulerAngles = startEule;
@@ -145,11 +152,12 @@ public class TurtleController : MonoBehaviour
 
     void SlowDown()
     {
-        timeSlow = Time.time + 5f;
+        timeSlow = Time.time + 3f;
         audioSource.PlayOneShot(wrongSound);
     }
     void NormalSpeed()
     {
+        Debug.Log("Normal Speed");
         playerMoveController.speedMovements = speedNormal;
     }
 
@@ -163,7 +171,7 @@ public class TurtleController : MonoBehaviour
             Debug.Log("Speed up");
         }
 
-        if(timeSlow <= Time.time && timeSpeedup <= Time.time){
+        if(timeSlow <= Time.time && timeSpeedup <= Time.time && playerMoveController.speedMovements != 0){
             NormalSpeed();
         }
     }

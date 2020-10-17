@@ -7,6 +7,7 @@ public class InGameMenu : MonoBehaviour
     public GameObject[] listGameObjectNeedActive;
     public GameObject[] listGameObectNeedDisable;
 
+    public GameObject delayCanvas;
     public PointController pointController;
 
     public TimeController timeController;
@@ -25,7 +26,9 @@ public class InGameMenu : MonoBehaviour
     }
 
     public void Replay(){
+        Debug.Log("RePlay");
         simpleTouchController.EndDrag();
+        delayCanvas.SetActive(true);
         foreach(GameObject go in listGameObectNeedDisable){
             go.SetActive(false);
         }
@@ -38,16 +41,14 @@ public class InGameMenu : MonoBehaviour
         turtle.transform.eulerAngles = turtleEules;
         pointController.ResetGame();
         timeController.ResetGame();
-        Debug.Log("RePlay");
         //SceneManager.LoadScene(1);
     }
 
     public void ResetAllItem(){
+        Debug.Log("Reset");
         simpleTouchController.EndDrag();
-        foreach(GameObject go in listGameObectNeedDisable){
-            go.SetActive(false);
-        }
         foreach(GameObject go in listGameObjectNeedActive){
+            if(go == listGameObjectNeedActive[3] || go == listGameObjectNeedActive[4] || go == listGameObjectNeedActive[0]) continue;
             go.SetActive(true);
         }
         turtle.SetActive(true);

@@ -13,7 +13,7 @@ public class TimeController : MonoBehaviour
     public int timeCount;
     float timeNow = 0;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     { 
         min = totalTime/60;
         second = totalTime%60;

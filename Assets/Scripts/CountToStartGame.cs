@@ -18,10 +18,12 @@ public class CountToStartGame : MonoBehaviour
 
     AudioSource soundEffect;
     // Start is called before the first frame update
-    void Start()
-    {
+
+    private void OnEnable() {
         startOnPlaneCanvas.SetActive(true);
+        startOnPlaneCanvas.transform.GetChild(0).GetComponent<Animator>().Play("StartText", -1, 0f);
         timeCount = 3;
+        countText.text = "3";
         timeNow = Time.time;
         temp = Time.time;
         soundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
