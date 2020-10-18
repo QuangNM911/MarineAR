@@ -43,12 +43,13 @@ public class PlaceObject : MonoBehaviour
                     Pose hitPose = raycastHits[0].pose;
                     //Instantiate(objectToPlace, hitPose.position, hitPose.rotation);
                     objectToPlace.SetActive(true);
-                    //objectToPlace.transform.position = hitPose.position;
-                    mapPlayGame.transform.position = hitPose.position + addToPlacePosition;
-                    mapPlayGame.transform.rotation = hitPose.rotation;
-                    Vector3 v = mapPlayGame.transform.eulerAngles;
-                    v.x = v.z = 0;
-                    mapPlayGame.transform.eulerAngles = v;
+                    objectToPlace.transform.position = hitPose.position;
+                    //mapPlayGame.transform.position = hitPose.position + addToPlacePosition;
+                    // mapPlayGame.transform.rotation = hitPose.rotation;
+                    // Vector3 v = mapPlayGame.transform.eulerAngles;
+                    // v.x = v.z = 0;
+                    // mapPlayGame.transform.eulerAngles = v;
+                    objectToPlace.transform.eulerAngles = Vector3.zero;
                     foreach(var plane in listPlane){
                         plane.gameObject.SetActive(false);
                     }

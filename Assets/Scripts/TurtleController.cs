@@ -26,6 +26,8 @@ public class TurtleController : MonoBehaviour
     public GameObject ingameCanvas;
     public GameObject endCanvas;
 
+    public Transform turtleFirstTrans;
+
     public GameObject effectFinish;
     Vector3 startPos, startEule;
 
@@ -100,7 +102,7 @@ public class TurtleController : MonoBehaviour
         turtleBody.SetActive(false);
         effectFinish.SetActive(true);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //pointController.score += (500 - timeController.timeCount);
+        GetComponent<Rigidbody>().useGravity = false;
         audioSource.PlayOneShot(winSound);
         pointController.ShowScore();
         endCanvas.SetActive(true);
@@ -109,10 +111,11 @@ public class TurtleController : MonoBehaviour
     void BackToStartPoint()
     {
         Debug.Log("BackToStart");
+        GetComponent<Rigidbody>().useGravity = false;
         inGameMenu.ResetAllItem();
         animatorTurtle.SetBool("swim", false);
         notiPopup.SetActive(true);
-        transform.position = startPos;
+        transform.position = turtleFirstTrans.position;
         audioSource.PlayOneShot(deadSound);
         playerMoveController.speedMovements = 0;
         StartCoroutine(HideTurtle());
@@ -124,6 +127,7 @@ public class TurtleController : MonoBehaviour
         turtleBody.SetActive(true);
         transform.eulerAngles = startEule;
         NormalSpeed();
+        GetComponent<Rigidbody>().useGravity = true;
     }
 
     IEnumerator ShowCanvasAboveTurtle(string mess){

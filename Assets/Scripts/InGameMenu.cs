@@ -15,6 +15,8 @@ public class InGameMenu : MonoBehaviour
     public SimpleTouchController simpleTouchController;
     public GameObject turtle;
     public GameObject turtleBody;
+
+    public Transform turtleFirstPos;
     Vector3 turtlePos,turtleEules;
 
     private void Start() {
@@ -27,6 +29,7 @@ public class InGameMenu : MonoBehaviour
 
     public void Replay(){
         Debug.Log("RePlay");
+        turtle.GetComponent<Animator>().SetBool("swim", false);
         simpleTouchController.EndDrag();
         delayCanvas.SetActive(true);
         foreach(GameObject go in listGameObectNeedDisable){
@@ -37,11 +40,11 @@ public class InGameMenu : MonoBehaviour
         }
         turtle.SetActive(true);
         turtleBody.SetActive(true);
-        turtle.transform.position = turtlePos;
+        turtle.transform.position = turtleFirstPos.position;
         turtle.transform.eulerAngles = turtleEules;
+        turtle.GetComponent<Rigidbody>().useGravity = true;
         pointController.ResetGame();
         timeController.ResetGame();
-        //SceneManager.LoadScene(1);
     }
 
     public void ResetAllItem(){
@@ -53,8 +56,9 @@ public class InGameMenu : MonoBehaviour
         }
         turtle.SetActive(true);
         turtleBody.SetActive(true);
-        turtle.transform.position = turtlePos;
+        turtle.transform.position = turtleFirstPos.position;
         turtle.transform.eulerAngles = turtleEules;
+        turtle.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void QuitApp(){
