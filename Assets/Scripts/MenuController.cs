@@ -64,11 +64,7 @@ public class MenuController : MonoBehaviour
     }
 
     public void TurnOnInfo(){
-        infoCanvas.SetActive(true);
-    }
-
-    public void TurnOffInfo(){
-        infoCanvas.SetActive(false);
+        Application.OpenURL("http://kcmb-ai.com.tw:8000/");
     }
 
     public void TurnOnCallCanvas(){
