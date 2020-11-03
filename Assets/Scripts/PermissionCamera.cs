@@ -11,10 +11,4 @@ public class PermissionCamera : MonoBehaviour
             Permission.RequestUserPermission(Permission.Camera);
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

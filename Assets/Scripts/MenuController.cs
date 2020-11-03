@@ -23,6 +23,8 @@ public class MenuController : MonoBehaviour
     public Image backgroundMusicButton;
 
     public Image soundEffectButton;
+
+    public GameObject childrenNoti;
     private void Start() {
         backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         soundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
@@ -36,6 +38,8 @@ public class MenuController : MonoBehaviour
     }
 
     IEnumerator LoadARScene(){
+        childrenNoti.SetActive(true);
+        yield return new WaitForSeconds(4f);
         AsyncOperation ao = SceneManager.LoadSceneAsync(1);
         while(!ao.isDone){
             loadingBarImage.fillAmount = Mathf.Clamp01(ao.progress/.9f);

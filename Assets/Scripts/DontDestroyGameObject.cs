@@ -8,6 +8,7 @@ public class DontDestroyGameObject : MonoBehaviour
     private void Awake() {
         if(instance == null){
             instance = this.gameObject;
+            //PlayerPrefs.SetInt("haveShowNoti", 0);
             DontDestroyOnLoad(gameObject);
         }
         else{
